@@ -16,7 +16,9 @@ First times create volume for maria db
 Then, create a .env file all environment variables, including the root password, as follows (the password is raw after the equal sign) :
 
         MYSQL_ROOT_PASSWORD_METABASE=>O:x`+3>.Tq}pPM8]%O`sA@in?91`^
-        # This password is fake, no need trying
+        METABASE_RESTART=no
+        # For test 
+        
 
 PLEASE, do apply secure permissions to this .env file :
 
