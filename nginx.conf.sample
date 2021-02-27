@@ -1,0 +1,19 @@
+server {
+    server_name YOUR_URL_PORTAINER;
+
+    listen 80;
+
+    # Logs
+    access_log /var/log/nginx/metabase-access.log main;
+    error_log /var/log/nginx/metabase-error.log warn;
+
+    location / {
+        include proxy_params;
+        proxy_pass http://0.0.0.0:6082/;
+
+        # WebSocket support
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+    }
+}

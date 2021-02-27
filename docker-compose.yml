@@ -1,0 +1,43 @@
+version: '3'
+
+networks:
+    metabase-internal-pod:
+        internal: true
+    metabase-external-pod:
+        internal: false
+
+volumes:
+    metabase-mariadb:
+        external: true
+        name: metabase-mariadb
+
+services:
+
+    metabase_mariadb:
+        image: mariadb:latest
+        container_name: metabase_mariadb
+        environment:
+            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD_METABASE}
+            MYSQL_DATABASE: metabase
+        networks:
+            - metabase-internal-pod
+        volumes:
+            - metabase-mariadb:/var/lib/mysql
+
+    metabase:
+        container_name: metabase
+        image: metabase/metabase
+        environment:
+            MB_DB_TYPE: mysql
+            MB_DB_DBNAME: metabase
+            MB_DB_PORT: 3306
+            MB_DB_USER: root
+            MB_DB_PASS: ${MYSQL_ROOT_PASSWORD_METABASE}
+            MB_DB_HOST: metabase_mariadb
+        networks:
+            - metabase-internal-pod
+            - metabase-external-pod
+        ports:
+            - "6082:3000"
+        depends_on:
+            - metabase_mariadb
