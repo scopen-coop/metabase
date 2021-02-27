@@ -28,27 +28,22 @@ PLEASE, do apply secure permissions to this .env file (in **production**):
 
         chmod 600 .env
 
-And then, you can run :
 
-        docker-compose up
+### Nginx configuration for production
 
-This will run 4 container Docker : Dolibarr, MariaDB, PhpMyAdmin and Maildev.
+Configure your local nginx, you can find sample nginx.conf.sample
+Note : the redirect port is currently 6082 also set into docker-compose.xml
+Do not forget to run certbot or complete nginx conf file
+```sh
+   certbot run --nginx --redirect -d YOUR_URL
+```
 
-The URL to go to the Dolibarr is :
-
-        http://0.0.0.0
-
-The URL to go to PhpMyAdmin is (login/password is root/root) :
-
-        http://0.0.0.0:8080
-
-In Dolibarr configuration Email let PHP mail function, To see all mail send by Dolibarr go to maildev
-
-        http://0.0.0.0:6081
-
-Setup the database connection during the installation process, please use mariadb (name of the database container) as database host.
-Setup documents folder, during the installation process, to /var/documents
-
-In A metabase container is also available
-
-        http://0.0.0.0:6082
+### Run compose
+```sh
+    docker-compose up
+```
+**for production**
+        go to https://YOUR_URL 
+        
+**for local test**
+        go to http://0.0.0.0:6082 
