@@ -1,10 +1,11 @@
-version: '3'
+version: '3.8'
 
 networks:
     metabase-internal-pod:
         internal: true
-    metabase-external-pod:
-        internal: false
+    metalab-network:
+       name : metalab-network
+       external: true
 
 volumes:
     metabase-mariadb:
@@ -37,7 +38,7 @@ services:
             MB_DB_HOST: metabase_mariadb
         networks:
             - metabase-internal-pod
-            - metabase-external-pod
+            - metalab-network
         ports:
             - "6082:3000"
         depends_on:
