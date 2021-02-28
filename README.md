@@ -9,7 +9,7 @@ For production usage you should consider other contributor reference like https:
 Just remplace docker-compose.yml by docker-compose.yml.mysqlonhost
 ```sh
    rm docker-compose.yml
-   mv docker-compose.yml.mysqlonhost docker-compose.yml
+   cp docker-compose.yml.mysqlonhost docker-compose.yml
 ```
 
 create a metabase database name metabase on the host mysql server and a user metabase with grant privilige on it. The password will be put in .env file (see below chapter)
