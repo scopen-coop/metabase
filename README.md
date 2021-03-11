@@ -33,12 +33,10 @@ create network where other container can bind to
 
 Then, create a .env file all environment variables, including the root password, as follows (the password is raw after the equal sign) :
 
-In case of Mysql install and running on HOST (and you want target db in it)
-
 if you are in case of Mysql install and running on HOST (and you want target db in it)
-		MYSQL_PASSWORD_METABASE=>O:x`+3>.Tq}pPM8]%O`sA@in?91`^
+		`MYSQL_PASSWORD_METABASE=qsdqdsqdsqdsqdsq`
 else
-		MYSQL_ROOT_PASSWORD_METABASE=>O:x`+3>.Tq}pPM8]%O`sA@in?91`^
+		`MYSQL_ROOT_PASSWORD_METABASE=qsdqdsqdsqdsqdsq`
         
         METABASE_RESTART=always
         # For production 
