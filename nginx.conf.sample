@@ -1,5 +1,5 @@
 server {
-    server_name YOUR_URL_PORTAINER;
+    server_name YOUR_URL;
 
     listen 80;
 
