@@ -53,6 +53,13 @@ PLEASE, do apply secure permissions to this .env file (in **production**):
 ### Nginx configuration for production
 
 Configure your local nginx, you can find sample nginx.conf.sample
+```sh
+ cp nginx.conf.sample /etc/nginx/sites-available/YOUR_URL.conf
+ nano /etc/nginx/sites-available/YOUR_URL.conf
+ ln -s /etc/nginx/sites-available/YOUR_URL.conf /etc/nginx/sites-enabled/YOUR_URL.conf
+ nginx -s relaod
+```
+
 Note : the redirect port is currently 6082 (or 3000 in case of Mysql install and running on HOST (and you want target db in it)) set into docker-compose.xml
 Do not forget to run certbot or complete nginx conf file
 ```sh
