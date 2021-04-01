@@ -13,6 +13,11 @@ Just remplace docker-compose.yml by docker-compose.yml.mysqlonhost
 ```
 
 create a metabase database name metabase on the host mysql server and a user metabase with grant privilige on it. The password will be put in .env file (see below chapter)
+From server installer
+```sh
+   ~/servermanager/scripts/mysql-create-db-user-random-pwd
+```
+
 
 ### In other case
 
