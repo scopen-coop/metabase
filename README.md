@@ -1,8 +1,6 @@
 # How to use it ?
 
-The docker-compose.yml file is used to build and run Dolibarr in the current workspace.
-This docker image intended for developpement usage.
-For production usage you should consider other contributor reference like https://hub.docker.com/r/tuxgasy/dolibarr 
+The docker-compose.yml file is used to build and run Metabase in the current workspace.
 
 ### In case of Mysql install and running on HOST (and you want target db in it)
 
